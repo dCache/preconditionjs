@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="../precondition.js"></script>
+  </head>
+  <body>
+    <input type="text" id="number">
+    <button onclick="check()">Check</button>
+    <br><br>
+    <div id="message">Message</div>
+    <script>
+      
+      function check () {
+        let a = parseInt(document.getElementById('number').value);
+        let message = document.getElementById('message');
+        try {
+          precondition.checkArgument(!isNaN(a), 
+            "Error! The value must be numberic.");
+          message.style.color = "green";
+          message.innerHTML = "Test passed!";
+        } catch (e) {
+          message.style.color = "red";
+          message.innerHTML = e.message;
+        }
+      }
+    </script>
+  </body>
+</html>
