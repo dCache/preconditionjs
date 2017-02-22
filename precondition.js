@@ -6,19 +6,9 @@ class precondition
     var expression = arguments[0] === null ? false : arguments[0];
     var msg = this._prepareMessage(arguments);
     if (!expression) {
-      throw TypeError(msg);
+      throw new Error(msg);
     }
   }
-  
-  /*static checkNotNull()
-  {
-    checkArgument(arguments[0]!==null);
-    var expression;
-    var msg = this._prepareMessage(arguments);
-    if (!expression) {
-      throw TypeError(msg);
-    }
-  }*/
   
   static _prepareMessage() 
   {
@@ -28,7 +18,6 @@ class precondition
       return "Invalid usage, please supply the condition you want to check";
     }
     
-    //move to the necessary check method
     if (typeof(arg[0]) !== 'boolean') {
         return "The argument expression must be Boolean";
     }
