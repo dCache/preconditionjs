@@ -1,9 +1,10 @@
+'use-strict';
 class precondition
 {
   constructor (){}
   static checkArgument()
   {
-    var expression = arguments[0] === null ? false : arguments[0];
+    const expression = arguments[0] === null ? false : arguments[0];
     var msg = this._prepareMessage(arguments);
     if (!expression) {
       throw new Error(msg);
@@ -12,8 +13,8 @@ class precondition
   
   static _prepareMessage() 
   {
-    var argLength = arguments[0].length;
-    var arg = arguments[0];
+    const argLength = arguments[0].length;
+    const arg = arguments[0];
     if (argLength === 0) {
       return "Invalid usage, please supply the condition you want to check";
     }
@@ -35,8 +36,8 @@ class precondition
         "the number of parameters.";
     }
     
-    var msg = arg[1];
-    var i;
+    const msg = arg[1];
+    let i;
     if (argLength > 2) {
       const len = arg[1].split('%s').length + 1;
       for (i=2; i<len; i++) {
